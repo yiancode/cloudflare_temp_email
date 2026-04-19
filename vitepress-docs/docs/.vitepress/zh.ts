@@ -91,6 +91,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             collapsed: false,
             items: [
                 { text: '什么是临时邮箱', link: 'what-is-temp-mail' },
+                { text: 'GitHub 高星域名邮箱项目盘点', link: 'high-star-domain-mail-projects' },
                 { text: 'Star History', link: 'star-history' },
                 { text: '快速开始部署', link: 'quick-start' },
             ]

@@ -1,0 +1,37 @@
+digraph DomainMailSelection {
+    graph [fontname="PingFang SC", fontsize=14, ranksep=0.8, nodesep=0.6, splines=ortho];
+    node [shape=box, style="rounded,filled", fontname="PingFang SC", fontsize=12, color="#546E7A"];
+    edge [fontname="PingFang SC", fontsize=10, color="#607D8B"];
+    rankdir=TB;
+
+    start [label="我想做什么类型的邮箱产品？", fillcolor="#E3F2FD", color="#1E88E5", penwidth=2];
+    alias [label="隐私邮箱 / 别名转发", fillcolor="#C8E6C9", color="#43A047"];
+    temp [label="临时邮箱 / 接码式收件箱", fillcolor="#E1BEE7", color="#8E24AA"];
+    full [label="完整托管邮箱 / 团队邮箱", fillcolor="#FFE0B2", color="#FB8C00"];
+
+    sl [label="SimpleLogin\n适合做成熟 SaaS", fillcolor="#A5D6A7"];
+    addy [label="Addy.io\n适合做自建与小团队产品", fillcolor="#A5D6A7"];
+    fe [label="Forward Email\n适合做高复杂度邮件平台", fillcolor="#A5D6A7"];
+
+    otm [label="OpenTrashmail\n适合做传统 temp mail 站", fillcolor="#CE93D8"];
+    tmw [label="Temp Mail Worker\n适合做 Cloudflare 轻量产品", fillcolor="#CE93D8"];
+
+    dms [label="docker-mailserver\n适合重视可控性", fillcolor="#FFCC80"];
+    mc [label="mailcow\n适合功能完整的运营后台", fillcolor="#FFCC80"];
+    miab [label="Mail-in-a-Box\n适合单机一键部署", fillcolor="#FFCC80"];
+
+    start -> alias;
+    start -> temp;
+    start -> full;
+
+    alias -> sl;
+    alias -> addy;
+    alias -> fe;
+
+    temp -> otm;
+    temp -> tmw;
+
+    full -> dms;
+    full -> mc;
+    full -> miab;
+}

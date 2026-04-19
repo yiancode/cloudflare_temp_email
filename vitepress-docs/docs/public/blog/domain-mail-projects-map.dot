@@ -1,0 +1,46 @@
+digraph DomainMailProjectsMap {
+    graph [fontname="PingFang SC", fontsize=14, ranksep=0.9, nodesep=0.5, splines=ortho];
+    node [shape=box, style="rounded,filled", fontname="PingFang SC", fontsize=12, color="#546E7A"];
+    edge [fontname="PingFang SC", fontsize=10, color="#607D8B"];
+    rankdir=TB;
+
+    center [label="域名邮箱开源项目", fillcolor="#E3F2FD", color="#1E88E5", penwidth=2];
+
+    subgraph cluster_alias {
+        label="邮件别名 / 转发";
+        style=filled;
+        fillcolor="#E8F5E9";
+        color="#66BB6A";
+        simplelogin [label="SimpleLogin\nPython / Docker", fillcolor="#C8E6C9"];
+        addy [label="Addy.io\nPHP / Laravel", fillcolor="#C8E6C9"];
+        forwardemail [label="Forward Email\nNode.js / MongoDB / Redis", fillcolor="#C8E6C9"];
+    }
+
+    subgraph cluster_fullstack {
+        label="完整邮件服务器";
+        style=filled;
+        fillcolor="#FFF3E0";
+        color="#FB8C00";
+        docker_ms [label="docker-mailserver\nPostfix + Dovecot + Rspamd", fillcolor="#FFE0B2"];
+        mailcow [label="mailcow\nDocker 编排 + SOGo", fillcolor="#FFE0B2"];
+        mailinabox [label="Mail-in-a-Box\nUbuntu 一键式 appliance", fillcolor="#FFE0B2"];
+    }
+
+    subgraph cluster_temp {
+        label="临时邮箱 / Inbox API";
+        style=filled;
+        fillcolor="#F3E5F5";
+        color="#8E24AA";
+        opentrashmail [label="OpenTrashmail\nPHP + Python SMTP", fillcolor="#E1BEE7"];
+        tempmail [label="Temp Mail Worker\nCloudflare Worker + D1 + R2", fillcolor="#E1BEE7"];
+    }
+
+    center -> simplelogin;
+    center -> addy;
+    center -> forwardemail;
+    center -> docker_ms;
+    center -> mailcow;
+    center -> mailinabox;
+    center -> opentrashmail;
+    center -> tempmail;
+}
